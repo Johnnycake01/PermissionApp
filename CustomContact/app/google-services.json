@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "12861830304",
+    "firebase_url": "https://mycontactapp-94213-default-rtdb.firebaseio.com",
+    "project_id": "mycontactapp-94213",
+    "storage_bucket": "mycontactapp-94213.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12861830304:android:1ae69ea47acbff681685c5",
+        "android_client_info": {
+          "package_name": "com.example.customcontact"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12861830304-7bhda2q0m9er190fr0o1r2u09gcklvik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEbEiWwHM8wkoD9clWd60k0PZwWcTFYX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12861830304-7bhda2q0m9er190fr0o1r2u09gcklvik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
