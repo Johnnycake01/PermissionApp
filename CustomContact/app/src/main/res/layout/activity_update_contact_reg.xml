@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:text="Create new contact"
+                android:text="Edit contact"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -43,12 +43,12 @@
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:background="@drawable/ic_baseline_person_outline_24"
-        app:layout_constraintBottom_toBottomOf="@id/editFirstName"
+        app:layout_constraintBottom_toBottomOf="@id/updateFirstName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/editFirstName" />
+        app:layout_constraintTop_toTopOf="@id/updateFirstName" />
 
     <EditText
-        android:id="@+id/editFirstName"
+        android:id="@+id/updateFirstName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -60,15 +60,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editLastName"
+        android:id="@+id/updateLastName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:hint="Last name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/editFirstName"
-        app:layout_constraintTop_toBottomOf="@id/editFirstName"
+        app:layout_constraintStart_toStartOf="@id/updateFirstName"
+        app:layout_constraintTop_toBottomOf="@id/updateFirstName"
 
         />
 
@@ -79,12 +79,12 @@
         android:layout_marginStart="10dp"
         android:background="@drawable/outline_call_24"
         android:backgroundTint="#E0DEDE"
-        app:layout_constraintBottom_toBottomOf="@id/editPhoneNumber"
+        app:layout_constraintBottom_toBottomOf="@id/updatePhoneNumber"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/editPhoneNumber" />
+        app:layout_constraintTop_toTopOf="@id/updatePhoneNumber" />
 
     <EditText
-        android:id="@+id/editPhoneNumber"
+        android:id="@+id/updatePhoneNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -94,17 +94,17 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iconCall"
-        app:layout_constraintTop_toBottomOf="@id/editLastName" />
+        app:layout_constraintTop_toBottomOf="@id/updateLastName" />
 
     <Button
-        android:id="@+id/saveButtonClick"
+        android:id="@+id/updateButtonClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPhoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePhoneNumber" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

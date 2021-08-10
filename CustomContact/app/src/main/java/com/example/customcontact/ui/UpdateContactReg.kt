@@ -12,51 +12,54 @@ import com.example.customcontact.objects.FunctionsAndValidation
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class ContactReg : AppCompatActivity() {
+class UpdateContactReg : AppCompatActivity() {
     //declaration of variables
     private lateinit var firstName: EditText
     private lateinit var lastName: EditText
     private lateinit var phoneNumber: EditText
-    private lateinit var database:DatabaseReference
-    private lateinit var clickSave: Button
+    private lateinit var database: DatabaseReference
+    private lateinit var clickUpdate: Button
+    private lateinit var fromIntentFullName:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contact_reg)
-
+        setContentView(R.layout.activity_update_contact_reg)
         //assign values to variables or find view link to variables
-       database = FirebaseDatabase.getInstance().getReference("Contacts")
-        clickSave = findViewById(R.id.saveButtonClick)
-        firstName = findViewById(R.id.editFirstName)
-        lastName = findViewById(R.id.editLastName)
-        phoneNumber = findViewById(R.id.editPhoneNumber)
+        database = FirebaseDatabase.getInstance().getReference("Contacts")
+        clickUpdate = findViewById(R.id.updateButtonClick)
+        firstName = findViewById(R.id.updateFirstName)
+        lastName = findViewById(R.id.updateLastName)
+        phoneNumber = findViewById(R.id.updatePhoneNumber)
 
-        //save button
-        clickSave.setOnClickListener {
-            saveContact() //function to save contact
-        }
+        fromIntentFullName = intent.getStringArrayExtra("realUpdateName").toString()
 
+
+        clickUpdate.setOnClickListener {
+         updateContactInfo()
+
+     }
     }
 
-    //save contact function
-    private fun saveContact() {
-
-        //check if name is valid i.e not null
+    //function to edit content of database
+    private fun updateContactInfo() {
         if (FunctionsAndValidation.validateName(firstName.text.toString())
             || FunctionsAndValidation.validateName(lastName.text.toString())
             || FunctionsAndValidation.validateName(phoneNumber.text.toString())
         ) {
             val firstNameInput = firstName.text.trim().toString()
             val lastNameInput = lastName.text.trim().toString()
-            val fullName = FunctionsAndValidation.joinName(firstNameInput,lastNameInput)
+            val fullName = fromIntentFullName
+            val updatedName = FunctionsAndValidation.joinName(firstNameInput,lastNameInput)
             val phoneNumberInput = phoneNumber.text.toString()
 
             database.child(fullName).setValue(
-                ContactItem(FunctionsAndValidation.getFirstAlphabet(fullName).toString(),
-                    fullName,phoneNumberInput))
+                ContactItem(
+                    FunctionsAndValidation.getFirstAlphabet(updatedName).toString(),
+                    updatedName,phoneNumberInput)
+            )
 
             val intent = Intent(this, DisplayContactInfo::class.java)
-            intent.putExtra("NAME", fullName)
+            intent.putExtra("NAME",  updatedName)
             intent.putExtra("PHONE_NUMBER", phoneNumber.text.toString())
             startActivity(intent)
             Toast.makeText(
@@ -64,7 +67,7 @@ class ContactReg : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
-        } else { //if null do this
+        } else {
             Toast.makeText(
                 this, "contact information is null and cannot be saved",
                 Toast.LENGTH_SHORT
@@ -72,6 +75,4 @@ class ContactReg : AppCompatActivity() {
             onBackPressed()
         }
     }
-
-
 }
