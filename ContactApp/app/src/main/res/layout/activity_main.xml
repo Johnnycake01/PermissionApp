@@ -14,6 +14,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             app:title="Contacts"
+            app:navigationIcon="@drawable/ic_baseline_list_24"
             app:titleTextColor="@color/white"
             android:layout_marginStart="10dp"
             android:layout_width="match_parent"

@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var button: Button
     private lateinit var recyclerViewView:RecyclerView
     private lateinit var errorButton:TextView
-    private lateinit var textView: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         recyclerViewView = findViewById(R.id.recycleViewView)
         errorButton = findViewById(R.id.textInput_error)
         button = findViewById(R.id.read_button)
-        textView = findViewById(R.id.TextInBox)
+
 
         //layout manager for recycler view
         recyclerViewView.layoutManager = LinearLayoutManager(this)
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-//funcyion yo read phone contact
+//function you read phone contact
     private fun readContact(){
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
             != PackageManager.PERMISSION_GRANTED
